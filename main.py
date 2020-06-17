@@ -10,8 +10,9 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly',
           'https://www.googleapis.com/auth/calendar']
 
 # The ID and range of a sample spreadsheet.
-SAMPLE_SPREADSHEET_ID = '1Y9_6T0J97OvNPozKt1aNTlYR-QD_uMLVNfB6yxQywMs'
-SAMPLE_RANGE_NAME = 'Εξεταστική!A2:E'
+# the id of the sheet can be found on its url
+SAMPLE_SPREADSHEET_ID = 'id_of_your_sheet'
+SAMPLE_RANGE_NAME = 'range_of_your_sheet'
 
 ################################################################################################################
 def get_credentials():
@@ -93,7 +94,9 @@ def get_sheet_data(creds):
 
 ################################################################################################################
 def main():
+    # get events from your google sheet 
     events = get_sheet_data(get_credentials())
+    # import it to google calendar 
     create_events(get_credentials(), events)
 
 ################################################################################################################
